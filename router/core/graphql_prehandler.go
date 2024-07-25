@@ -500,6 +500,7 @@ func (h *PreHandler) Handler(next http.Handler) http.Handler {
 		}
 
 		enginePlanSpan.SetAttributes(otel.WgEnginePlanCacheHit.Bool(opContext.planCacheHit))
+		enginePlanSpan.SetAttributes(otel.WgEnginePlanCacheSize.Int64(opContext.planCacheSize))
 
 		enginePlanSpan.End()
 
